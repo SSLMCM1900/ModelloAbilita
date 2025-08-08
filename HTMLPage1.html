@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Creazione Carta Personalizzata</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+
+        <aside class="sidebar">
+            <h3>Font abilita</h3>
+            <label for="abilitaFontFamily">Scegli font abilita:</label>
+            <select id="abilitaFontFamily">
+                <option value="Arial" selected>Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Lucida Console">Lucida Console</option>
+            </select>
+            <label for="abilitaFontSizeInput">Grandezza abilita:</label>
+            <input type="number" id="abilitaFontSizeInput" min="6" max="24" value="14" />
+
+
+            <h3>Colore e Sfondo abilita</h3>
+            <label for="abilitaFontColor">Colore testo abilita</label>
+            <input type="color" id="abilitaFontColor" value="#000000" />
+            <div id="abilitaFontColorSwatches" class="swatch-container"></div>
+
+            <label for="abilitaBgColor">Sfondo abilita:</label>
+            <input type="color" id="abilitaBgColor" value="#ffffff" />
+            <div id="abilitaBgColorSwatches" class="swatch-container"></div>
+
+
+            <label for="abilitaleftBgColor">Sfondo abilita sinistra:</label>
+            <input type="color" id="abilitaleftBgColor" value="#ffffff" />
+            <div id="abilitaleftBgColorSwatches" class="swatch-container"></div>
+
+            <label for="Cartasfondo">Sfondo carta:</label>
+            <input type="color" id="CartaSfondo" value="#ffffff" />
+            <div id="CartaSfondoSwatches" class="swatch-container"></div>
+
+
+            <label for="titleInput">Titolo carta:</label>
+            <input type="text" id="titleInput" placeholder="Titolo" />
+            <label for="titleDInput">Simbolo titolo a destra:</label>
+            <input type="text" id="titleDInput" placeholder="1" />
+            <h3>Font Titolo</h3>
+            <label for="titleFontFamily">Scegli font titolo:</label>
+            <select id="titleFontFamily">
+                <option value="Arial" selected>Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Lucida Console">Lucida Console</option>
+            </select>
+            <label for="titleFontSizeInput">Grandezza titolo:</label>
+            <input type="number" id="titleFontSizeInput" min="10" max="36" value="20" />
+
+
+            <h3>Colore e Sfondo Titolo</h3>
+            <label for="titleFontColor">Colore testo titolo</label>
+            <input type="color" id="titleFontColor" value="#000000" />
+            <div id="titleFontColorSwatches" class="swatch-container"></div>
+
+            <label for="titleBgColor">Sfondo titolo:</label>
+            <input type="color" id="titleBgColor" value="#ffffff" />
+            <div id="titleBgColorSwatches" class="swatch-container"></div>
+
+
+
+
+
+            <label for="ContInput"> Abilità Continua:</label>
+            <input type="text" id="ContInput" placeholder="Abilità Continua" />
+            <h3>Font Abilità</h3>
+            <label for="ContFontFamily">Scegli font abilità continua:</label>
+            <select id="ContFontFamily">
+                <option value="Arial" selected>Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Lucida Console">Lucida Console</option>
+            </select>
+            <label for="ContFontSizeInput">Grandezza abilità continua:</label>
+            <input type="number" id="ContFontSizeInput" min="6" max="24" value="14" />
+
+
+            <h3>Colore e Sfondo Abilità Continua</h3>
+            <label for="ContFontColor">Colore testo abilità continua</label>
+            <input type="color" id="ContFontColor" value="#000000" />
+            <div id="ContFontColorSwatches" class="swatch-container"></div>
+
+            <label for="ContBgColor">Sfondo abilità continua:</label>
+            <input type="color" id="ContBgColor" value="#ffffff" />
+            <div id="ContBgColorSwatches" class="swatch-container"></div>
+
+
+
+
+            <div class="sidebar">
+
+
+                <div id="sectionsContainer">
+                    <!-- Qui appariranno le sezioni generate -->
+                </div>
+            </div>
+
+            <label for="NCartatesto">Colore numero carta:</label>
+            <input type="color" id="NCartaTesto" value="#000000" />
+            <div id="NCartaTestoSwatches" class="swatch-container"></div>
+            <label for="NCartasfondo">Sfondo numero carta:</label>
+            <input type="color" id="NCartaSfondo" value="#ffffff" />
+            <div id="NCartaSfondoSwatches" class="swatch-container"></div>
+
+            <label for="RaritaSelect">Rarità:</label>
+            <select id="Raritaselect">
+                <option value="C">C</option>
+                <option value="NC">NC</option>
+                <option value="R">R</option>
+                <option value="SR">R</option>
+                <option value="UR">R</option>
+            </select>
+            <label for="Raritatesto">Colore Rarita:</label>
+            <input type="color" id="RaritaTesto" value="#000000" />
+            <div id="RaritaTestoSwatches" class="swatch-container"></div>
+            <label for="Raritasfondo">Sfondo Rarita:</label>
+            <input type="color" id="RaritaSfondo" value="#ffffff" />
+            <div id="RaritaSfondoSwatches" class="swatch-container"></div>
+
+
+            <label for="EInput">Espansione:</label>
+            <select id="Eselect">
+                <option value="E1">E1</option>
+                <option value="E2">E2</option>
+                <option value="E3">E3</option>
+                <option value="E4">E4</option>
+                <option value="E5">E5</option>
+                <option value="E6">E6</option>
+                <option value="E7">E7</option>
+                <option value="E8">E8</option>
+                <option value="E9">E9</option>
+            </select>
+            <label for="Etesto">Colore Espansione:</label>
+            <input type="color" id="ETesto" value="#000000" />
+            <div id="ETestoSwatches" class="swatch-container"></div>
+            <label for="Esfondo">Sfondo Espansione:</label>
+            <input type="color" id="ESfondo" value="#ffffff" />
+            <div id="ESfondoSwatches" class="swatch-container"></div>
+
+
+            <button id="downloadBtn">Scarica Carta</button>
+
+        </aside>
+
+        <main>
+            <div class="card" id="cardPreview">
+
+                <!-- Titolo -->
+                <div class="card-header" id="contTit">
+                    <div class="header-left">
+                        <h2 id="cardTitle">Titolo Principale</h2>
+                    </div>
+                    <div class="header-right">
+                        <span id="cardMini">1</span> 
+                    </div>
+                </div>
+
+
+                <!-- 7 Fasce -->
+                <div id="middleSections">
+                    <div class="mid-section" id="section1">
+                        <div class="left-part" id="L1"></div>
+                        <div class="right-part" id="Sez1"></div>
+                    </div>
+                    <div class="mid-section" id="section2">
+                        <div class="left-part" id="L2"></div>
+                        <div class="right-part" id="Sez2"></div>
+                    </div>
+                    <div class="mid-section" id="section3">
+                        <div class="left-part" id="L3"></div>
+                        <div class="right-part" id="Sez3"></div>
+                    </div>
+                    <div class="mid-section" id="section4">
+                        <div class="left-part" id="L4"></div>
+                        <div class="right-part" id="Sez4"></div>
+                    </div>
+                    <div class="mid-section" id="section5">
+                        <div class="left-part" id="L5"></div>
+                        <div class="right-part" id="Sez5"></div>
+                    </div>
+                    <div class="mid-section" id="section6">
+                        <div class="left-part" id="L6"></div>
+                        <div class="right-part" id="Sez6"></div>
+                    </div>
+                    <div class="mid-section full-width" id="cardDescription">
+                        Sezione 7 - Intera
+                    </div>
+                </div>
+
+                <!-- Descrizione -->
+                <!-- Footer -->
+                <div class="card-footer">
+                    <div class="left-group">
+                        <!-- Ridotte le caselle da 5 a 2 per esempio -->
+                        <div class="footer-box footer-image-box" data-index="2"></div>
+                        <div class="footer-box footer-image-box" data-index="3"></div>
+                    </div>
+                    <div class="right-group">
+                        <div class="footer-box footer-rarity-box" data-index="7" id="Rarita"></div>
+                        <div class="footer-box footer-number-box" data-index="6" id="NumeroCarta">1/150</div>
+                        <div class="footer-box footer-image-box" data-index="1" id="Casella1"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function removeTopSection() {
+            const container = document.getElementById('middleSections');
+            const first = container.querySelector('.mid-section');
+            if (first) {
+                container.removeChild(first);
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

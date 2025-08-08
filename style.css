@@ -1,0 +1,481 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Sidebar laterale */
+.sidebar {
+    width: 400px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+}
+
+    .sidebar h2,
+    .sidebar h3 {
+        margin-top: 0;
+    }
+
+    .sidebar label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    .sidebar input[type="text"],
+    .sidebar input[type="number"],
+    .sidebar select,
+    .sidebar textarea {
+        width: 100%;
+        padding: 6px;
+        margin-top: 5px;
+        font-size: 0.9rem;
+    }
+
+    /* Bottone */
+    .sidebar button {
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+/* Contenitore controllo input sinistra */
+.left-config {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .left-config label {
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .left-config input[type="number"] {
+        width: 50px;
+        padding: 4px;
+        font-size: 0.9rem;
+    }
+
+/* Sezione blocco controllo */
+.section-block {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+/* Bottone elimina sezione */
+.remove-section {
+    background: none;
+    border: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: red;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+    .remove-section:hover {
+        color: darkred;
+    }
+
+/* Container swatches */
+.swatch-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+/* Singola swatch */
+.swatch {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+    .swatch:hover {
+        transform: scale(1.15);
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+/* Area centrale */
+main {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#sectionsContainer > div {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+/* Carta */
+.card {
+    width: 300px;
+    height: 419.2px;
+    background-color: #fff;
+    border: 2px solid #333;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+/* Header carta */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #000;
+    padding: 4px 8px;
+    background: #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.header-left {
+    flex: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .header-left h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: left;
+        width: 100%;
+    }
+
+.header-right {
+    flex: 1;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.top-symbol {
+    font-size: 1.2rem;
+    color: black;
+}
+
+#cardTitle {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.card-header {
+    text-align: center;
+}
+
+/* Immagine carta */
+.image-container {
+    height: 210px;
+    width: 100%;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 2px;
+    border: 1px solid #aaa;
+    max-width: 100%;
+    max-height: 100%;
+    resize: both;
+}
+
+#cardImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Sezioni centrali */
+#middleSections {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.mid-section {
+    display: flex;
+    height: 32px;
+    margin-bottom: 2px;
+    font-size: 0.75rem;
+}
+
+.left-part {
+    flex: 1;
+    padding: 5px;
+    font-size: 12px;
+    overflow: auto;
+    border-right: 1px solid #ddd;
+    text-align: center; /* aggiungi questa */
+    display: block; /* rimuovi il flex se vuoi testo semplice */
+}
+
+.right-part {
+    flex: 2;
+    border-right: none;
+    padding: 5px;
+    font-size: 12px;
+    overflow: auto;
+    text-align: justify; /* aggiungi questa */
+    display: block; /* oppure rimuovi flex se presente */
+}
+
+
+/* Descrizione */
+#cardDescription {
+    flex: 1 1 auto;
+    padding: 8px;
+    font-size: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    margin-top: 1px;
+    overflow-y: auto;
+    min-height: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    display: none;
+    max-width: 278px;
+    text-align: justify;
+}
+
+/* Footer carta */
+.card-footer {
+    flex: 0 0 40px;
+    display: flex;
+    align-items: center;
+    padding: 5px 8px;
+    background: #eee;
+    border-top: 1px solid #ccc;
+    gap: 6px;
+    overflow: hidden;
+    user-select: none;
+    font-size: 0.85rem;
+}
+
+.left-group {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.right-group {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 6px;
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+
+/* Footer image box */
+.footer-image-box {
+    width: 30px;
+    height: 30px;
+    background: black;
+    color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    user-select: none;
+}
+
+/* Footer rarity box */
+.footer-rarity-box {
+    width: 30px;
+    height: 30px;
+    background: black;
+    color: white;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+/* Casella numero carta */
+.footer-number-box {
+    width: 70px;
+    height: 30px;
+    background: white;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    color: black;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-image-box:empty,
+.footer-rarity-box:empty {
+    background: transparent;
+    border: 1px dashed #ccc;
+    color: transparent;
+    pointer-events: none;
+}
+
+#Casella1 {
+    background: white;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.circle, .star, .diamond {
+    clip-path: none;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+/* Forme simboliche */
+.circle {
+    border-radius: 50%;
+}
+
+.star {
+    clip-path: polygon( 50% 0%, 70% 35%, 100% 50%, 70% 65%, 80% 100%, 50% 80%, 20% 100%, 30% 65%, 0% 50%, 30% 35% );
+}
+
+.diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+
+/* Palette colori */
+.swatch-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.color-swatch {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.export-cleanup {
+    resize: none !important;
+    overflow: hidden !important;
+    border: none !important;
+}
+
+/* Bottom rectangle (due metà) */
+.bottom-rectangle {
+    display: flex;
+    width: 80%;
+    height: 40px;
+    margin: 5px auto;
+    border-top: 2px solid #333;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.bottom-left,
+.bottom-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: black;
+    border-left: 1px solid #ccc;
+}
+
+.bottom-left {
+    border-left: none;
+    background-color: #e0e0e0;
+}
+
+.bottom-right {
+    background-color: #c0c0c0;
+}
+
+.mid-section {
+    display: flex;
+    resize: vertical;
+    overflow: auto;
+    min-height: 32px;
+    margin-bottom: 2px;
+    border: 1px solid #ccc;
+}
+
+.left-part,
+.right-part {
+    flex: 1;
+    padding: 5px;
+    font-size: 12px;
+    overflow: auto;
+    border-right: 1px solid #ddd;
+}
+
+.right-part {
+    flex: 2;
+    border-right: none;
+}
+
+.full-width {
+    background-color: #d0d0d0;
+    min-height: 32px;
+    padding: 5px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    text-align: justify; /* testo a sinistra */
+    display: block; /* no flex */
+    overflow: auto;
+    resize: vertical;
+}
