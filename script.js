@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const leftPart = document.querySelector(`#section${sectionIndex} .left-part`);
         if (!leftPart) return;
 
-        leftPart.innerHTML = ''; // pulizia
+        leftPart.innerHTML = '';
 
         for (let slot = 1; slot <= 3; slot++) {
             const sym = document.getElementById(`symbol${sectionIndex}_${slot}`).value.trim();
@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const svg = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="24" height="24">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="21" height="21" style="display:flex;">
   ${shapeElement}
   <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-        fill="${symColor}" font-size="40" font-family="Noto Sans Symbols, Arial">
+        fill="${symColor}" font-size="40" font-family="Arial" style="user-select:none;">
     ${sym}
   </text>
 </svg>
@@ -68,12 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const wrapper = document.createElement('span');
             wrapper.style.display = 'inline-block';
-            wrapper.style.marginRight = '4px';
+            wrapper.style.marginRight = '1px';
+            wrapper.style.width = '21px';
+            wrapper.style.height = '21px';
+            wrapper.style.lineHeight = '21px';
+            wrapper.style.verticalAlign = 'middle';
             wrapper.innerHTML = svg;
 
             leftPart.appendChild(wrapper);
         }
     }
+
 
   // Funzione per aggiornare la parte destra (descrizione)
   function renderRightSide(sectionIndex) {
