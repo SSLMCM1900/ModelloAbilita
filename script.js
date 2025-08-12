@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const cardDescription = document.getElementById('cardDescription');
     cardDescription.style.display = 'flex'; // Nascondo la descrizione della carta
   const sidebar = document.querySelector('.sidebar');
@@ -32,7 +32,7 @@
         const leftPart = document.querySelector(`#section${sectionIndex} .left-part`);
         if (!leftPart) return;
 
-        leftPart.innerHTML = ''; // pulisco
+        leftPart.innerHTML = ''; // pulizia
 
         for (let slot = 1; slot <= 3; slot++) {
             const sym = document.getElementById(`symbol${sectionIndex}_${slot}`).value.trim();
@@ -42,33 +42,35 @@
 
             if (!sym) continue;
 
+            const shapePolygons = {
+                star: "50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35",
+                diamond: "50,0 100,50 50,100 0,50"
+            };
+
+            let shapeElement = "";
+
+            if (shape === "circle") {
+                shapeElement = `<circle cx="50" cy="50" r="45" fill="${shapeColor}" />`;
+            } else {
+                const points = shapePolygons[shape] || shapePolygons.diamond;
+                shapeElement = `<polygon points="${points}" fill="${shapeColor}" />`;
+            }
+
+            const svg = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="24" height="24">
+  ${shapeElement}
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+        fill="${symColor}" font-size="40" font-family="Noto Sans Symbols, Arial">
+    ${sym}
+  </text>
+</svg>
+`;
+
             const wrapper = document.createElement('span');
             wrapper.style.display = 'inline-block';
-            wrapper.style.marginRight = '3px';
+            wrapper.style.marginRight = '4px';
+            wrapper.innerHTML = svg;
 
-            const shapeSpan = document.createElement('span');
-            shapeSpan.className = ''; // reset
-            shapeSpan.classList.add(shape); // circle, star, diamond...
-            
-            shapeSpan.style.backgroundColor = shapeColor;
-            shapeSpan.style.display = 'flex';
-            shapeSpan.style.alignItems = 'center';
-            shapeSpan.style.justifyContent = 'center';
-            shapeSpan.style.position = 'relative';
-      
-            shapeSpan.style.userSelect = 'none';
-            shapeSpan.style.width = '21px';
-            shapeSpan.style.height = '21px';
-            shapeSpan.style.lineHeight = '21px';
-            shapeSpan.style.fontSize = '13px';
-
-            const symSpan = document.createElement('span');
-            symSpan.textContent = sym;
-            symSpan.style.color = symColor;
-            symSpan.style.fontWeight = 'bold';
-            shapeSpan.appendChild(symSpan);
-
-            wrapper.appendChild(shapeSpan);
             leftPart.appendChild(wrapper);
         }
     }
