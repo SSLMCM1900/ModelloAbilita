@@ -640,3 +640,15 @@ downloadBtn.addEventListener("click", () => {
         imageContainer.classList.remove('export-cleanup');
     });
 });
+
+
+const ColoraTutto = document.getElementById("ColoraTutto");
+ColoraTutto.addEventListener("input", () => {
+    cardTitle.style.backgroundColor = ColoraTutto.value;
+    cardMini.style.backgroundColor = ColoraTutto.value;
+    const Rarita = document.getElementById("Rarita")
+    Rarita.style.backgroundColor =ColoraTutto.value;
+    cardPreview.style.backgroundColor = ColoraTutto.value;
+    contTit.style.backgroundColor = ColoraTutto.value;
+});
+ColoraTuttoSwatches.appendChild(createSwatches("ColoraTutto", "bg"))
